@@ -3,7 +3,7 @@ body{
     padding: 0;
     /* font-family: sans-serif; */
     padding-top: 90px;
-    background: url(plants4.jpg);
+    background: url(./assets/plants4.jpg);
     background-size: cover;
     background-position: center;
     font-family: 'Lato', sans-serif;
