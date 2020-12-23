@@ -7,24 +7,18 @@ body{
     background-size: cover;
     background-position: center;
     font-family: 'Lato', sans-serif;
-    color: rgb(85, 79, 79);
+    color: rgb(216, 213, 213);
+}
+audio:hover {transform: scale(1.1);filter: drop-shadow(2px 3px 3px #333);}
+audio{
+    width: 50%;
 }
 
-.tmember img{
-    width: 100%;
-    border-radius: 20px;
-}
-.tmember p{
-    font-size: large;
-}
-.tmember{
-    padding-bottom: 8%;
-}
 
-h5{
+.titles{
     color: black;
 }
-.team-info{
+.teachings{
     padding-top: 20%;
     text-align: center;
 }
