@@ -53,7 +53,7 @@
         //gets the Admin details
         public function getAdminDetails($data){
             //Prepare Query
-            $this->db->query('select * from Admins where username = :username');
+            $this->db->query('select * from Admin where username = :username');
 
             // Bind Values
             $this->db->bind(':username', $data['username']);

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Our Teachings</title>
+	<title>Admin Sign In</title>
 	<link rel="icon" href="../assets/SIM logo.png" type="image/gif">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+	<link rel="stylesheet" type="text/css" href="adminSignIn.css">
 	
 </head>
 <body>
@@ -22,28 +22,23 @@
  		</div>
 	</nav>
 
-	<div class="container teachings">
+	<!-- responsible for live background -->
+    <div class="bg"></div>
+	<div class="bg bg2"></div>
+	<div class="bg bg3"></div>
+
+	<div class="container content">
 		<!-- <img src="nature4.jpg" class="img-fluid" alt="Responsive image"> -->
 		
 		<div class="row">
 			<div class="col-lg-12">
 				<div id="content">
-					<h1>Register Here!!!</h1>
+					<h1>Log In Here!!!</h1>
 				</div>
 			</div>
 		</div>
-		<div class="jumbotron content">
+		<div class="jumbotron">
 			<form>
-				<div class="form-row">
-					<div class="col-md-6 mb-3">
-					  <label for="fname">First name*</label>
-					  <input type="text"  id="fname" placeholder="John" required>
-					</div>
-					<div class="col-md-6 mb-3">
-					  <label for="lname">Last name*</label>
-					  <input type="text"  id="lname" placeholder="Antwi" required>
-					</div>
-				  </div>
                 <div >
                     
                   <label for="username">Username</label>
@@ -51,17 +46,18 @@
                   
                 </div>
                 <div>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" placeholder="Your password" required> <br>
-					<label for="confirmPasword"> Confirm Password</label>
-                    <input type="password" id="confirmPassword" placeholder="Your password" required>
+                    <label for="pasword">Password</label>
+                    <input type="password" id="password" placeholder="Your password" required>
+
                 </div>
                
               <br>
               
-                <button type="submit" class="btn btn-primary">Sign Up</button>
+                <button type="submit" class="btn btn-primary" >Sign In</button>
             </form>
-            
+            <h5><em>Forgot Password?</em></h5> <br>
+            <h5><em>New User?</em></h5>
+            <button class="btn btn-secondary" onclick="window.location.href='adminSignUp.php';">Sign Up</button>
 		</div>
 	</div>
 	<footer class="jumbotron" id="footer">
