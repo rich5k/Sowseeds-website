@@ -72,24 +72,26 @@
                     <td>Mark</td>
                     <td>Otto</td>
                     <td>@mdo</td>
-                    <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                 </tr>
                 <tr>
                     <th scope="row">2</th>
                     <td>Jacob</td>
                     <td>Thornton</td>
                     <td>@fat</td>
-                    <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                 </tr>
                 <tr>
                     <th scope="row">3</th>
                     <td colspan="2">Larry the Bird</td>
                     <td>@twitter</td>
-                    <td><button><i class="fa fa-trash" aria-hidden="true"></i></button></td>
+                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                 </tr>
                 
             </tbody>
         </table>
+
+        <button class='btn btn-dark'>Add <i class="fa fa-plus" aria-hidden="true"></i></button>
     </div>
 	
 	<footer class="jumbotron" id="footer">
