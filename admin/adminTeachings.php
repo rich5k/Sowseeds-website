@@ -83,7 +83,7 @@
             </tbody>
         </table>
 
-        <button class='btn btn-dark'>Add <i class="fa fa-plus" aria-hidden="true"></i></button>
+        <button class='btn btn-dark ' onclick='location.href="./adminAddTeachings.php";' >Add <i class="fa fa-plus" aria-hidden="true"></i></button>
     </div>
 	
 	<footer class="jumbotron" id="footer">

@@ -82,7 +82,7 @@
                 
             </tbody>
         </table>
-        </table>
+        
     </div>
 	
 	<footer class="jumbotron" id="footer">
