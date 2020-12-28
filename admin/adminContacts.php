@@ -60,9 +60,11 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Email</th>
+					<th scope="col">Message Type</th>
+					<th scope="col">Message</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -71,22 +73,12 @@
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
-                    <td>@mdo</td>
+					<td>motto@gmail.com</td>
+					<td>Question</td>
+					<td>How donations get to the ministry?</td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+               
                 
             </tbody>
         </table>

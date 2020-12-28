@@ -7,6 +7,8 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="adminSignup.css">
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<!-- <meta content="utf-8" http-equiv="encoding"> -->
 	
 </head>
 <body>
@@ -38,7 +40,7 @@
 			</div>
 		</div>
 		<div class="jumbotron">
-			<form action="../controller/register.php" method="post">
+			<form action="../controller/testRegister.php" method="post">
 				<div class="form-row">
 					<div class="col-md-6 mb-3">
 					  <label for="fname">First name*</label>
@@ -58,13 +60,13 @@
                 <div>
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Your password" required> <br>
-					<label for="confirmPasword"> Confirm Password</label>
+					<label for="confirmPassword"> Confirm Password</label>
                     <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Your password" required>
                 </div>
                
               <br>
               
-                <button type="submit" name="submit" class="btn btn-primary">Sign Up</button>
+                <input type="submit" name="submit" class="btn btn-primary" value="Sign Up">
             </form>
             
 		</div>

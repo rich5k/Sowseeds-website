@@ -59,34 +59,26 @@
         <table class="table table-bordered table-hover table-dark">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+				<th scope="col">#</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Start Time</th>
+					<th scope="col">End Time</th>
+					<th scope="col">Picture</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>Watch Night</td>
+                    <td>We are going to show gratittude to God for all that He has done for us in 2020</td>
+					<td>2020-12-31</td>
+					<td>2020-12-31</td>
+					<td><img style="width: 200px;" src="../assets/events1.jpg" alt=""></td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+                
                 
             </tbody>
         </table>

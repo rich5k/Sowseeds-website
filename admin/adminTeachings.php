@@ -60,33 +60,25 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Minister</th>
+                    <th scope="col">Date</th>
+					<th scope="col">Day</th>
+					<th scope="col">Audio File</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
+                    <td>Hello Hello</td>
+                    <td>Bro David</td>
+                    <td>2020-02-01</td>
+					<td>Sunday</td>
+					<td><audio src="../assets/sounds/sound1.ogg" type="audio/mpeg" controls></audio>	</td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>@fat</td>
-                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td colspan="2">Larry the Bird</td>
-                    <td>@twitter</td>
-                    <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+               
                 
             </tbody>
         </table>

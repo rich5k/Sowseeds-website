@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['submit'])){
     //Add Database connection
-    require_once '../controller/database.php';
+    require_once './controller/database.php';
     require_once '../models/Admin.php';
     require_once '../models/Database.php';
 
@@ -14,6 +14,7 @@ if(isset($_POST['submit'])){
     $password=$_POST['password'];
     $confirmPass=$_POST['confirmPassword'];
 
+    echo $fname;
     //admin Data
     $adminData =[
         'fname'=> $fname,
@@ -24,6 +25,7 @@ if(isset($_POST['submit'])){
 
     echo 'passed here 1';
     
+    echo $lname;
 
     //if fields are empty
     if (empty($fname) ||empty($lname) || empty($username) || empty($password) || empty($confirmPass)){
