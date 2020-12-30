@@ -63,7 +63,7 @@ if(isset($_POST['submit'])){
     
 }else{
 
-    header("Location: ../index.php?error=accessforbidden");
+    header("Location: ../admin/adminSignIn.php?error=accessforbidden");
     exit();
 }
 ?>
