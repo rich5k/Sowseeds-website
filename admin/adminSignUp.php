@@ -40,7 +40,7 @@
 			</div>
 		</div>
 		<div class="jumbotron">
-			<form action="../controller/testRegister.php" method="post">
+			<form action="../controller/register.php" method="post">
 				<div class="form-row">
 					<div class="col-md-6 mb-3">
 					  <label for="fname">First name*</label>
@@ -60,6 +60,7 @@
                 <div>
                     <label for="password">Password</label>
                     <input type="password" name="password" id="password" placeholder="Your password" required> <br>
+					
 					<label for="confirmPassword"> Confirm Password</label>
                     <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Your password" required>
                 </div>

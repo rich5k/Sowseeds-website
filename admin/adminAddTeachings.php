@@ -10,12 +10,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Add Events Page</title>
+	<title>Add Teachings Page</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<link rel="icon" href="../assets/SIM logo.png" type="image/gif">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="adminIndex.css">
+	<link rel="stylesheet" href="adminAddTeachings.css">
+	<script src="../js/jquery-ui.min.js"></script>
+	<meta charset="utf-8"/>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #007F00;">
@@ -31,10 +34,10 @@
 		      <li class="nav-item ">
 		        <a class="nav-link" href="adminIndex.php">Home</a>
 		      </li>
-		      <li class="nav-item active">
+		      <li class="nav-item ">
 		        <a class="nav-link" href="adminEvents.php">Events</a>
 		      </li>
-		     <li class="nav-item">
+		     <li class="nav-item active">
 		        <a class="nav-link" href="adminTeachings.php">Teachings</a>
 		      </li>
 		      <li class="nav-item">
@@ -62,54 +65,67 @@
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="Title" required> <br>
-                    <label for="description">Description</label>
-                    <input type="text" name="description" id="Description" placeholder="Description" required>
+                    <label for="minister">Minister</label>
+                    <input type="text" name="minister" id="minister" placeholder="Pastor ..." required><br>
+					<label for="teachDate">Teaching Date</label>
+					<input type="text" name="teachDate" id="teachDate" placeholder='2020-12-29'  required><br>
+					<label for="teachDay">Teaching Day</label>
+					<input type="text" name="teachDay"  id="teachDay" placeholder='Sunday' required><br>
+					Select audio file to upload:
+					<input type="file" name='audio' id='audio' required>
                 </div>
-                <div class="form-row">
-                    <div class="col-md-6 mb-3">
-                    <label for="fDate">Duration</label>
-                    <input type="text" name="fDate" id="fDate" placeholder='2020-12-29'  required>
-                    </div>
-                    <div class="col-md-6 mb-3">
-                    <label for="tDate">to</label>
-                    <input type="text" name="tDate"  id="tDate" placeholder='2020-12-31' required>
-                    </div>
-                </div>
-                <div>
-                <label for="day">Day</label>
-                    <input type="text" name="day" id="day" placeholder="Sunday" required> <br>
-                    Select audio file to upload:
-                    <input type="file" name='image' id='image' required>
-                      
-                </div>
+                
                 <br>
 
-                <input type="button" name="preview" class="btn btn-primary" value="Preview Event">
-                <input type="submit" name="submit" class="btn btn-success" value="Add Event">
+                <input type="button" id='previewBtn' name="preview" class="btn btn-primary" value="Preview Teaching">
+                <input type="submit" name="submit" class="btn btn-success" value="Add Teaching">
             </form>
             
 		    </div>
         </div>
         <div class="col-lg-6">
             <h2>Preview</h2>
-            <div class="jumbotron">
-                <div class="col-sm-6">
-                    <div>
-                        <img src="../assets/_MG_0082.jpg" class="img-thumbnail">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="content1">
-                        <h3>Children's Camp</h3>
-                        <p>During every summer break, a children camp is organised to teach children the Word of God in a fun and exciting way through various activities and games. </p>
-                        <hr>
-                        <button type="button" class="btn btn-primary btn-lg"><i class="fa fa-user-plus"></i> Register Now!</button>
-                    </div>
-                </div>
+            <div class="jumbotron" >
+				<div id="teaching">
+					<p class="titles">
+						Sunday, 20th Dec.<br>
+						Minister: Brother David <br>
+						Msg: <strong>Garment Are You Wearing part 2</strong><br> 
+						A Must Hear Msg. <br>
+						Listen, be educated, do the work &  be blessed <br>
+					</p>
+					<audio src="../assets/sounds/sound1.ogg" type="audio/mpeg" controls></audio>	
+				</div>
 
             </div>
         </div>
-	
+</div>
+	<script>
+		
+		$('#previewBtn').click(function(){
+			var title=$('#title').val();
+			var minister=$('#minister').val();
+			var teachDate=$('#teachDate').val();
+			var teachDay=$('#teachDay').val();
+			var audioFile=$('#audio').val();
+
+			if(title !='' && minister !='' &&teachDate !='' &&teachDay !='' &&audioFile !='' ){
+				$.ajax({
+					url:'teachPreview.php',
+					mode: 'cors',
+					method: 'POST',
+					data: {title: title, minister: minister, teachDate: teachDate, teachDay: teachDay, audioFile: audioFile},
+					success:function(data){
+						$('#teaching').html(data);
+					}
+				});
+			}
+			else{
+                //if any filed is empty, show alert
+                alert('Pls fill all fields in the form');
+            }
+		})
+	</script>
 	<footer class="jumbotron" id="footer">
 		<div class="container">
 			<div class="row">
@@ -135,7 +151,7 @@
 			</div>
 		</div>
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+	
 	<script type="text/javascript" src="../bootstrap.min.js"></script>
 </body>
 </html>

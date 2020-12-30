@@ -15,7 +15,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="adminIndex.css">
+	<link rel="stylesheet" href="adminAddTeachings.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #007F00;">
@@ -62,8 +62,8 @@
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="Title" required> <br>
-                    <label for="description">Description</label>
-                    <input type="description" name="description" id="Description" placeholder="Description" required>
+                    <label for="description">Description</label><br>
+                    <textarea name="description" id="description" placeholder="description" required></textarea>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6 mb-3">
@@ -90,10 +90,10 @@
         </div>
         <div class="col-lg-6">
             <h2>Preview</h2>
-            <div class="jumbotron">
+            <div class="jumbotron" id='preview'>
                 <div class="col-sm-6">
                     <div>
-                        <img src="../assets/_MG_0082.jpg" class="img-thumbnail">
+                        <img  src="../assets/_MG_0082.jpg" class="img-thumbnail">
                     </div>
                 </div>
                 <div class="col-sm-6">
@@ -107,7 +107,7 @@
 
             </div>
         </div>
-	
+</div>
 	<footer class="jumbotron" id="footer">
 		<div class="container">
 			<div class="row">
