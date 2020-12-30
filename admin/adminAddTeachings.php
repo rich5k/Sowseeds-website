@@ -47,6 +47,30 @@
 		        <a class="nav-link" href="adminDonations.php">Donations</a>
 		      </li>
 		    </ul>
+			<ul class="navbar-nav my-2 my-lg-0 ml-auto" >
+                <li class="nav-item signIn">
+					<?php
+					//if session variable has been created, put first name and last name in navbar
+							if(isset($_SESSION['sessionFname'])&&isset($_SESSION['sessionLname'])){
+								printf('Welcome, %s %s', $_SESSION['sessionFname'], $_SESSION['sessionLname']);
+								echo <<<_SIGNOUTITEM
+								<a id="sign-in" class="nav-link" href="../controller/logout.php">
+										Sign Out 
+									<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+								
+								_SIGNOUTITEM;
+
+							}else{
+								//if not, redirect to sign in page
+								echo '<script>alert("Pls sign in")</script>';
+                				echo '<script>window.location.href = "../admin/adminSignIn.php";</script>';
+
+								
+							}
+						?> 
+					
+				</li>
+			</ul>
 			</div>
  			
  		</div>
@@ -112,7 +136,6 @@
 			if(title !='' && minister !='' &&teachDate !='' &&teachDay !='' &&audioFile !='' ){
 				$.ajax({
 					url:'teachPreview.php',
-					mode: 'cors',
 					method: 'POST',
 					data: {title: title, minister: minister, teachDate: teachDate, teachDay: teachDay, audioFile: audioFile},
 					success:function(data){

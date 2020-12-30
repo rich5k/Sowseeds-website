@@ -1,3 +1,58 @@
 <?php
-echo "hey it worked";
+    if(isset($_POST["title"], $_POST["minister"], $_POST["teachDate"], $_POST["teachDay"], $_POST["audioFile"],)){
+        require_once '../controller/database.php';
+        require_once '../models/Database.php';
+        require_once '../models/Admin.php';
+        session_start();
+        $output ='';
+        $title=$_POST["title"];
+        $minister=$_POST["minister"];
+        $teachDate=$_POST["teachDate"];
+        $teachDay=$_POST["teachDay"];
+        $audioFile=$_POST["audioFile"];
+        $adminID=$_SESSION['sessionId'];
+        
+        
+
+        // adminEvents Data
+        $adminTeachingsData= [
+            "adminId"=> $adminID,
+            "title"=> $title,
+            "minister"=> $minister,
+            "teachDate"=> $teachDate,
+            "teachDay"=> $teachDay,
+            "audioFile"=> $audioFile
+        ];
+
+        // Instantiate admin
+        $admin= new Admin();
+
+        $audioName=$_FILES[$image]['name'];
+
+        //adding to adminEvents
+        if($admin->addPreviewTeachings($adminTeachingsData)){
+            $output.= '
+            <p class="titles">
+            '.$teachDay.', '.$teachDate.'<br>
+            Minister: '.$minister.' <br>
+            Msg: <strong>'.$title.'</strong><br> 
+            A Must Hear Msg. <br>
+            Listen, be educated, do the work &  be blessed <br>
+        </p>
+        <audio src="../assets/sounds/'.$audioName.'" type="audio/mpeg" controls></audio>	
+                    ';
+            
+        }else{
+            echo '<script>alert("Unable to add Events Preview table")</script>';
+            echo '<script>window.location.href = "../admin/adminAddTeachings.php";</script>';
+       
+            exit(); 
+        }
+        
+        echo $output;
+    }
+    
+
+
+
 ?>

@@ -2,7 +2,7 @@
     if(isset($_POST["title"], $_POST["description"], $_POST["fDate"], $_POST["tDate"], $_POST["image"],)){
         require_once '../controller/database.php';
         require_once '../models/Database.php';
-        require_once '../models/Customer.php';
+        require_once '../models/Admin.php';
         session_start();
         $output ='';
         $title=$_POST["title"];
@@ -15,103 +15,55 @@
         
 
         // adminEvents Data
-        $OrderData= [
+        $adminEventsData= [
             "adminId"=> $adminID,
+            "title"=> $title,
+            "description"=> $description,
             "fDate"=> $fDate,
-            "tDate"=> $tDate
+            "tDate"=> $tDate,
+            "image"=> $image
         ];
 
-        // Instantiate Customer
-        $customer= new Customer();
+        // Instantiate admin
+        $admin= new Admin();
 
-        // Instantiate Product
-        $product= new Product();
+        $imageName=$_FILES[$image]['name'];
 
-        //filtering orders
-        $orders= $customer->filterOrders($OrderData);
-
-        $ordersNum= count($orders);
-        $output .='
-        <div class="container">
-        <h3><strong>Total number of orders from  '. $fDate.' to '. $tDate.': '. $ordersNum. '</strong></h3>
-        <br>';
-        // Payment Data
-        $PaymentData= [
-            "custID"=> $custId,
-            "orderID"=> 0
-        ];
-        foreach($orders as $key){
-            $output .='
-            <div class="container orders">
-                <h2><strong>Order</strong></h2>
-                <h6 class="timeStamp">'.$key->orderTime.'</h6>
-            
-            ';
-            $PaymentData['orderID']=$key->orderID;
-            $payments=$customer->displayPayments($PaymentData);
-            $prodPays=$product->getProductPayments($payments->paymentID);
-            foreach($prodPays as $index){
-                $products= $product->getSomeProducts($index->productID);
-
-                foreach($products as $p){
-                    $output .= '
-                        <div class="container">
-                            <div class="img-blks5 col-sm-12 text-center product row">
-                            <div class = "col-lg-6">
-                            <img src="../assets/productImages/'.$p->image .'" />
-                            </div>
-                            <div class = "col-lg-6">
-                                <form action= "cart_remove.php" method= "post">
-                                    <input type="hidden" name="buyId" value="'.$p->productID.'"></input>
-                                    <strong class="pMainText pName">'.$p->pName.'</strong>
-                                    <h3 class="pMainText pPrice">$'.$p->price.'</h3>
-                        
-                        ';
-                        $total=$total+(float)$p->price*(int)$index->quantity;
-                        $output .= '
-                                    <h3 class="pRating"
-
-                        ';
-                        for ($i=0; $i <= $p->rating; $i++) { 
-                        # code...
-                        $output .= '
-                                    <i class="fa fa-star" aria-hidden="true"></i>
-
-                        ';
-                        
-                        }
-                        if ($p->rating< 5) {
-                        # code...
-                        for($i=0; $i < 5-$p->rating; $i++){
-                            $output .= '
-                                    <i class="fa fa-star-o" aria-hidden="true"></i>
-
-                            ';
-                        
-
-                        }
-                        }
-                        $output .= '
-                                    </h3>
-                                    <strong class="pMainText quantity">Qty: '.$index->quantity.'</strong>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                                    
-
-                        ';
-
-                }
-            }
-            $output .= '
-                <h5><strong>Order Total: $'.$total.'</strong></h5>
+        //adding to adminEvents
+        if($admin->addPreviewEvents($adminEventsData)){
+            $output.= '
+                <div class="col-sm-6">
+                <div>
+                    <img  src="../assets/'.$imageName.'" class="img-thumbnail">
+                </div>
             </div>
-            <br><br>
-                
+            <div class="col-sm-6">
+                <div class="content1">
+                    <h3>'.$title.'</h3>
+                    <p>'.$description.'</p>
+                    ';
+            if($fDate==$tDate){
+                $output.='
+                <p>Date: '.$fDate.'</p>
+                ';
+            }else{
+                $output.='
+                <p>Date: '.$fDate.'to '.$tDate.'</p>
+                ';
+            }
+            $output.='
+                    <hr>
+                    
+                </div>
+            </div>
             ';
-            $total=0.00;
+        }else{
+            echo '<script>alert("Unable to add Events Preview table")</script>';
+            echo '<script>window.location.href = "../admin/adminAddEvents.php";</script>';
+       
+            exit(); 
         }
+        
         echo $output;
     }
     

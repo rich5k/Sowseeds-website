@@ -46,7 +46,7 @@ create table donations(
     amount float(6,2) not null
 );
 
-use SIMSAdmin;
+
 create table adminEvents(
     adminEventID int not null primary key auto_increment,
     adminID int not null,

@@ -11,10 +11,12 @@
 <html>
 <head>
 	<title>Add Events Page</title>
+	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<link rel="icon" href="../assets/SIM logo.png" type="image/gif">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="../js/jquery-ui.min.js"></script>
 	<link rel="stylesheet" href="adminAddTeachings.css">
 </head>
 <body>
@@ -44,6 +46,30 @@
 		        <a class="nav-link" href="adminDonations.php">Donations</a>
 		      </li>
 		    </ul>
+			<ul class="navbar-nav my-2 my-lg-0 ml-auto" >
+                <li class="nav-item signIn">
+					<?php
+					//if session variable has been created, put first name and last name in navbar
+							if(isset($_SESSION['sessionFname'])&&isset($_SESSION['sessionLname'])){
+								printf('Welcome, %s %s', $_SESSION['sessionFname'], $_SESSION['sessionLname']);
+								echo <<<_SIGNOUTITEM
+								<a id="sign-in" class="nav-link" href="../controller/logout.php">
+										Sign Out 
+									<i class="fa fa-sign-out" aria-hidden="true"></i></a>
+								
+								_SIGNOUTITEM;
+
+							}else{
+								//if not, redirect to sign in page
+								echo '<script>alert("Pls sign in")</script>';
+                				echo '<script>window.location.href = "../admin/adminSignIn.php";</script>';
+
+								
+							}
+						?> 
+					
+				</li>
+			</ul>
 			</div>
  			
  		</div>
@@ -159,7 +185,6 @@
 			</div>
 		</div>
 	</footer>
-	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../bootstrap.min.js"></script>
 </body>
 </html>
