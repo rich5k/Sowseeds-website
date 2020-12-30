@@ -38,22 +38,22 @@
 			</div>
 		</div>
 		<div class="jumbotron">
-			<form>
+			<form action='../controller/login.php' method='post'>
                 <div >
                     
                   <label for="username">Username</label>
-                  <input type="username" id="username" placeholder="Your username" required>
+                  <input type="username" name="username" id="username" placeholder="Your username" required>
                   
                 </div>
                 <div>
                     <label for="pasword">Password</label>
-                    <input type="password" id="password" placeholder="Your password" required>
+                    <input type="password" name="password" id="password" placeholder="Your password" required>
 
                 </div>
                
               <br>
               
-                <button type="submit" class="btn btn-primary" >Sign In</button>
+                <button type="submit" name="submit" class="btn btn-primary" >Sign In</button>
             </form>
             <h5><em>Forgot Password?</em></h5> <br>
             <h5><em>New User?</em></h5>
