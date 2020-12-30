@@ -82,7 +82,7 @@
                 </div>
                 <br>
 
-                <input type="button" name="preview" class="btn btn-primary" value="Preview Event">
+                <input type="button" id="previewBtn" name="preview" class="btn btn-primary" value="Preview Event">
                 <input type="submit" name="submit" class="btn btn-success" value="Add Event">
             </form>
             
@@ -108,6 +108,32 @@
             </div>
         </div>
 </div>
+
+	<script>
+		
+		$('#previewBtn').click(function(){
+			var title=$('#title').val();
+			var description=$('#description').val();
+			var fDate=$('#fDate').val();
+			var tDate=$('#tDate').val();
+			var image=$('#image').val();
+
+			if(title !='' && description !='' &&fDate !='' &&tDate !='' &&image !='' ){
+				$.ajax({
+					url:'eventPreview.php',
+					method: 'POST',
+					data: {title: title, description: description, fDate: fDate, tDate: tDate, image: image},
+					success:function(data){
+						$('#preview').html(data);
+					}
+				});
+			}
+			else{
+                //if any filed is empty, show alert
+                alert('Pls fill all fields in the form');
+            }
+		})
+	</script>
 	<footer class="jumbotron" id="footer">
 		<div class="container">
 			<div class="row">

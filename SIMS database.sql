@@ -14,8 +14,8 @@ create table events(
     eventID int not null primary key auto_increment,
     title varchar(255) not null,
     description text(65535) not null,
-    startTime datetime not null,
-    endTime datetime not null,
+    startTime date not null,
+    endTime date not null,
     picture varchar(255) not null
 );
 
@@ -44,4 +44,21 @@ create table donations(
     paymentType varchar(255) not null,
     accountDetails varchar(255) not null,
     amount float(6,2) not null
+);
+
+use SIMSAdmin;
+create table adminEvents(
+    adminEventID int not null primary key auto_increment,
+    adminID int not null,
+    eventID int not null,
+    foreign key (adminID) references Admin(adminID),
+    foreign key (eventID) references events(eventID)
+);
+
+create table adminTeachings(
+    adminTeachingID int not null primary key auto_increment,
+    adminID int not null,
+    teachingID int not null,
+    foreign key (adminID) references Admin(adminID),
+    foreign key (teachingID) references teachings(teachingID)
 );
