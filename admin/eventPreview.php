@@ -5,15 +5,18 @@
         require_once '../models/Customer.php';
         session_start();
         $output ='';
-        $fDate=$_POST["from_date"];
-        $tDate=$_POST["to_date"];
-        $custId=$_SESSION['sessionId'];
+        $title=$_POST["title"];
+        $description=$_POST["description"];
+        $fDate=$_POST["fDate"];
+        $tDate=$_POST["tDate"];
+        $image=$_POST["image"];
+        $adminID=$_SESSION['sessionId'];
         
-        $total=0.00;
+        
 
-        // Order Data
+        // adminEvents Data
         $OrderData= [
-            "custID"=> $custId,
+            "adminId"=> $adminID,
             "fDate"=> $fDate,
             "tDate"=> $tDate
         ];

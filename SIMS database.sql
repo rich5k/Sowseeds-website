@@ -50,15 +50,23 @@ use SIMSAdmin;
 create table adminEvents(
     adminEventID int not null primary key auto_increment,
     adminID int not null,
-    eventID int not null,
-    foreign key (adminID) references Admin(adminID),
-    foreign key (eventID) references events(eventID)
+    title varchar(255) not null,
+    description text(65535) not null,
+    startTime date not null,
+    endTime date not null,
+    picture varchar(255) not null,
+    foreign key (adminID) references Admin(adminID)
+    
 );
 
 create table adminTeachings(
     adminTeachingID int not null primary key auto_increment,
     adminID int not null,
-    teachingID int not null,
-    foreign key (adminID) references Admin(adminID),
-    foreign key (teachingID) references teachings(teachingID)
+    title varchar(255) not null,
+    minister varchar(255) not null,
+    teachDate datetime not null,
+    teachDay varchar(255) not null,
+    audioFile varchar(255) not null,
+    foreign key (adminID) references Admin(adminID)
+    
 );
