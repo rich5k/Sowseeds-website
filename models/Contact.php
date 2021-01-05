@@ -1,5 +1,5 @@
 <?php
-    class Admin{
+    class Contact{
         private $db;
 
         public function __construct(){
@@ -8,7 +8,7 @@
         }
 
         //adds Admin
-        public function addAdmin($data){
+        public function addContact($data){
             //Prepare Query
             $this->db->query('insert into Admin(fname, lname, email, messageType,contactMessage) values(:fname, :lname, :email, :messageType,:contactMessage)');
 

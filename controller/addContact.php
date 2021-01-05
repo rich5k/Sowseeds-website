@@ -7,12 +7,10 @@
         $email=$_POST['email'];
         $category=$_POST['category'];
         $message=$_POST['message'];
-        $catId1=1;
-        $catId2=2;
-        $catId3=3;
-        $catId4=4;
+        
     }
 
+    $contact= new Contact();
     // if all the fields are empty return an error
     if(empty($fname)||empty($lname)||empty($email)||empty($category)||empty($message)){
         
@@ -23,5 +21,78 @@
             window.location.replace('../view/contact_us_new.php');
         </SCRIPT>";
         exit();
+    }else{
+        if($category=='comment'){
+            $contactData=[
+                'fname'=> $fname,
+                'lname'=> $lname,
+                'email'=> $email,
+                'messageType'=> 'comment',
+                'contactMessage'=> $message
+            ];
+
+            if($contact->addContact($contactData)){
+                $message2="Message sent. Thank you for reaching out to us :)";
+                echo "<SCRIPT> 
+                    alert('$message2')
+                    window.location.replace('../index.html');
+                </SCRIPT>";
+                exit();
+            }
+        }
+        if($category=='question'){
+            $contactData=[
+                'fname'=> $fname,
+                'lname'=> $lname,
+                'email'=> $email,
+                'messageType'=> 'question',
+                'contactMessage'=> $message
+            ];
+
+            if($contact->addContact($contactData)){
+                $message2="Message sent. Thank you for reaching out to us :)";
+                echo "<SCRIPT> 
+                    alert('$message2')
+                    window.location.replace('../index.html');
+                </SCRIPT>";
+                exit();
+            }
+        }
+        if($category=='problem'){
+            $contactData=[
+                'fname'=> $fname,
+                'lname'=> $lname,
+                'email'=> $email,
+                'messageType'=> 'problem',
+                'contactMessage'=> $message
+            ];
+
+            if($contact->addContact($contactData)){
+                $message2="Message sent. Thank you for reaching out to us :)";
+                echo "<SCRIPT> 
+                    alert('$message2')
+                    window.location.replace('../index.html');
+                </SCRIPT>";
+                exit();
+            }
+        }
+        if($category=='none'){
+            $contactData=[
+                'fname'=> $fname,
+                'lname'=> $lname,
+                'email'=> $email,
+                'messageType'=> 'none',
+                'contactMessage'=> $message
+            ];
+
+            if($contact->addContact($contactData)){
+                $message2="Message sent. Thank you for reaching out to us :)";
+                echo "<SCRIPT> 
+                    alert('$message2')
+                    window.location.replace('../index.html');
+                </SCRIPT>";
+                exit();
+            }
+        }
     }
 ?>
