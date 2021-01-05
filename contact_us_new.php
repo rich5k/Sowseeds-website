@@ -80,63 +80,63 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="content1" id="service">
-						<form>
+						<form action="../controller/addContact.php" method="post">
 						  <div class="form-group needs-validation" novalidate>
 						  	<div class="form-row">
 							    <div class="col-md-6 mb-3">
-							      <label for="validationTooltip01">First name*</label>
-							      <input type="text" class="form-control" id="validationTooltip01" placeholder="John" required>
+							      <label for="fname">First name*</label>
+							      <input type="text" class="form-control" id="fname" name="fname" placeholder="John" required>
 							      <div class="valid-tooltip">
 							        Looks good!
 							      </div>
 							    </div>
 							    <div class="col-md-6 mb-3">
-							      <label for="validationTooltip02">Last name*</label>
-							      <input type="text" class="form-control" id="validationTooltip02" placeholder="Antwi" required>
+							      <label for="lname">Last name*</label>
+							      <input type="text" class="form-control" id="lname" name="lname" placeholder="Antwi" required>
 							      <div class="valid-tooltip">
 							        Looks good!
 							      </div>
 							    </div>
 							  </div>
-						    <label for="InputEmail1">Email address*</label>
-						    <input type="email" class="form-control fix-rounded-right" id="InputEmail1" aria-describedby="emailHelp" placeholder="name@example.com" required>
+						    <label for="email">Email address*</label>
+						    <input type="email" class="form-control fix-rounded-right" id="email" name="email" aria-describedby="emailHelp" placeholder="name@example.com" required>
 						    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 						    <div class="valid-tooltip">
 						        Looks good!
 						     </div>
 						  </div>
-						  <div class="mb-3">
-						    <label for="PhoneNum">Phone*</label>
-						    <input type="text" class="form-control" id="PhoneNum" placeholder="+233 244384937 " required>
+						  <!-- <div class="mb-3">
+						    <label for="phoneNum">Phone*</label>
+						    <input type="text" class="form-control" id="phoneNum" name="phoneNum" placeholder="+233 244384937 " required>
 						    <div class="invalid-feedback">
 						      Please enter a phone number.
 						    </div>
-						 </div>
+						 </div> -->
 						  <div class="custom-control custom-radio">
-							  <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio1">Comment</label>
+							  <input type="radio" id="comment" name="category" class="custom-control-input">
+							  <label class="custom-control-label" for="comment">Comment</label>
 						</div>
 						<div class="custom-control custom-radio">
-							  <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio2">Question</label>
+							  <input type="radio" id="question" name="category" class="custom-control-input">
+							  <label class="custom-control-label" for="question">Question</label>
 						</div>
 						<div class="custom-control custom-radio">
-							  <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio3">Report a problem with website</label>
+							  <input type="radio" id="problem" name="category" class="custom-control-input">
+							  <label class="custom-control-label" for="problem">Report a problem with website</label>
 						</div>
 						<div class="custom-control custom-radio">
-							  <input type="radio" id="customRadio4" name="customRadio" class="custom-control-input">
-							  <label class="custom-control-label" for="customRadio4">None of the above (see the message below)</label>
+							  <input type="radio" id="none" name="category" class="custom-control-input">
+							  <label class="custom-control-label" for="none">None of the above (see the message below)</label>
 						</div>
 						<br>
 						<div class="mb-3">
-						    <label for="validationTextarea">Message*</label>
-						    <textarea class="form-control" id="validationTextarea" placeholder="My message is...." required></textarea>
+						    <label for="message">Message*</label>
+						    <textarea class="form-control" id="message" name="message" placeholder="My message is...." required></textarea>
 						    <div class="invalid-feedback">
 						      Please enter a message in the textarea.
 						    </div>
 						 </div>
-						  <button type="submit" class="btn btn-primary">Submit</button>
+						  <button type="submit" name="submit" class="btn btn-primary">Submit</button>
 						</form>
 						<hr>
 					</div>
