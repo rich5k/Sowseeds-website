@@ -33,13 +33,13 @@
 			          
 			    </li>
 		      <li class="nav-item active">
-		        <a class="nav-link" href="events_new.html">Events <span class="sr-only">(current)</span></a>
+		        <a class="nav-link" href="events_new.php">Events <span class="sr-only">(current)</span></a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="mission_vision_new.html">Mission & Vision</a>
 		      </li>
 		     <li class="nav-item">
-		        <a class="nav-link" href="audio_teachings.html">Audio Teachings</a>
+		        <a class="nav-link" href="audio_teachings.php">Audio Teachings</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="directions_new.html">Directions</a>
