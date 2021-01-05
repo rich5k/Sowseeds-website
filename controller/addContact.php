@@ -18,7 +18,7 @@
         $message1="Pls some fields are empty. Do well to fill all of them";
         echo "<SCRIPT> 
             alert('$message1')
-            window.location.replace('../view/contact_us_new.php');
+            window.location.replace('../contact_us_new.php');
         </SCRIPT>";
         exit();
     }else{
@@ -39,6 +39,7 @@
                 </SCRIPT>";
                 exit();
             }
+            
         }
         if($category=='question'){
             $contactData=[
@@ -56,6 +57,9 @@
                     window.location.replace('../index.html');
                 </SCRIPT>";
                 exit();
+            }
+            else{
+                echo 'sqlerror2';
             }
         }
         if($category=='problem'){
@@ -75,6 +79,9 @@
                 </SCRIPT>";
                 exit();
             }
+            else{
+                echo 'sqlerror3';
+            }
         }
         if($category=='none'){
             $contactData=[
@@ -92,6 +99,9 @@
                     window.location.replace('../index.html');
                 </SCRIPT>";
                 exit();
+            }
+            else{
+                echo 'sqlerror4';
             }
         }
     }

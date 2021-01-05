@@ -80,7 +80,7 @@
 				</div>
 				<div class="col-sm-6">
 					<div class="content1" id="service">
-						<form action="../controller/addContact.php" method="post">
+						<form action="./controller/addContact.php" method="post">
 						  <div class="form-group needs-validation" novalidate>
 						  	<div class="form-row">
 							    <div class="col-md-6 mb-3">
@@ -113,19 +113,19 @@
 						    </div>
 						 </div> -->
 						  <div class="custom-control custom-radio">
-							  <input type="radio" id="comment" name="category" class="custom-control-input">
+							  <input type="radio" id="comment" name="category" value="comment" class="custom-control-input">
 							  <label class="custom-control-label" for="comment">Comment</label>
 						</div>
 						<div class="custom-control custom-radio">
-							  <input type="radio" id="question" name="category" class="custom-control-input">
+							  <input type="radio" id="question" name="category" value="question" class="custom-control-input">
 							  <label class="custom-control-label" for="question">Question</label>
 						</div>
 						<div class="custom-control custom-radio">
-							  <input type="radio" id="problem" name="category" class="custom-control-input">
+							  <input type="radio" id="problem" name="category" value="problem" class="custom-control-input">
 							  <label class="custom-control-label" for="problem">Report a problem with website</label>
 						</div>
 						<div class="custom-control custom-radio">
-							  <input type="radio" id="none" name="category" class="custom-control-input">
+							  <input type="radio" id="none" name="category" value="none" class="custom-control-input">
 							  <label class="custom-control-label" for="none">None of the above (see the message below)</label>
 						</div>
 						<br>
