@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST["title"], $_POST["description"], $_POST["fDate"], $_POST["tDate"], $_POST["image"],)){
+    if(isset($_POST["title"], $_POST["description"], $_POST["fDate"], $_POST["tDate"], $_POST["image"])){
         require_once '../controller/database.php';
         require_once '../models/Database.php';
         require_once '../models/Admin.php';
@@ -9,7 +9,8 @@
         $description=$_POST["description"];
         $fDate=$_POST["fDate"];
         $tDate=$_POST["tDate"];
-        $image=$_POST["image"];
+        echo $_FILES["image"]['tmp_name'];
+        $image=$_FILES["image"]["name"];
         $adminID=$_SESSION['sessionId'];
         
         
@@ -27,14 +28,14 @@
         // Instantiate admin
         $admin= new Admin();
 
-        $imageName=$_FILES[$image]['name'];
+        // $imageName=$_FILES['image']['name'];
 
         //adding to adminEvents
         if($admin->addPreviewEvents($adminEventsData)){
             $output.= '
                 <div class="col-sm-6">
                 <div>
-                    <img  src="../assets/'.$imageName.'" class="img-thumbnail">
+                    <img  src="../assets/'.$image.'" class="img-thumbnail">
                 </div>
             </div>
             <div class="col-sm-6">

@@ -84,7 +84,7 @@
         <div class="col-lg-6">
             <h2>Add An Event</h2>
             <div class="jumbotron">
-			<form action="../controller/testRegister.php" method="post" enctype='multipart/form-data'>
+			<form action="../controller/testRegister.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="Title" required> <br>
@@ -103,7 +103,7 @@
                 </div>
                 <div>
                     Select image to upload:
-                    <input type="file" name='image' id='image' required>
+                    <input type="file" name="image" id="image" required>
                       
                 </div>
                 <br>
@@ -143,11 +143,13 @@
 			var fDate=$('#fDate').val();
 			var tDate=$('#tDate').val();
 			var image=$('#image').val();
-
+			alert(image);
 			if(title !='' && description !='' &&fDate !='' &&tDate !='' &&image !='' ){
 				$.ajax({
 					url:'eventPreview.php',
 					method: 'POST',
+					contentType: false,
+					processData: false,
 					data: {title: title, description: description, fDate: fDate, tDate: tDate, image: image},
 					success:function(data){
 						$('#preview').html(data);

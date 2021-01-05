@@ -1,3 +1,11 @@
+<?php
+	require_once '../controller/database.php';
+    require_once '../models/Teaching.php';
+    require_once '../models/Database.php';
+    session_start();
+    
+    
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,7 +38,7 @@
 			          <a class="dropdown-item" href="our_team.html">Our Team</a>
 			          <a class="dropdown-item" href="our_values_new.html">Our Values</a>
 			          <a class="dropdown-item" href="statement_of_faith_new.html">Statement of Faith</a>
-			          <a class="dropdown-item" href="contact_us_new.html">Contact Us</a>
+			          <a class="dropdown-item" href="contact_us_new.php">Contact Us</a>
 			          
 			    </li>
 		      
@@ -56,7 +64,7 @@
 	</nav>
 
 	<div class="container teachings">
-		<!-- <img src="nature4.jpg" class="img-fluid" alt="Responsive image"> -->
+
 		
 		<div class="row">
 			<div class="col-lg-12">
@@ -67,14 +75,24 @@
 		</div>
 		<div class="jumbotron content">
 			<div class="teaching">
-				<p class="titles">
-					Sunday, 20th Dec.<br>
-					Minister: Brother David <br>
-					Msg: <strong>Garment Are You Wearing part 2</strong><br> 
-					A Must Hear Msg. <br>
-					Listen, be educated, do the work &  be blessed <br>
-				</p>
-				<audio src="./assets/sounds/sound1.ogg" type="audio/mpeg" controls></audio>	
+				<?php
+					$teaching= new Teaching();
+					$teachings=$teaching->getTeachings();
+
+					foreach($teachings as $key){
+						echo '<p class="titles">';
+						echo $key->teachDay.', '.$key->teachDate.'<br>';
+						echo 'Minister: '.$key->minister.' <br>';
+						echo 'Msg: <strong>'.$key->title.'</strong><br> ';
+						echo 'A Must Hear Msg. <br>';
+						echo 'Listen, be educated, do the work &  be blessed <br>';
+						echo '</p>';
+						echo '<audio src="./assets/sounds/'.$key->picture.'" type="audio/mpeg" controls></audio';
+
+						echo '<br><br>';
+					}
+				?>
+				
 			</div>
 		</div>
 	</div>
