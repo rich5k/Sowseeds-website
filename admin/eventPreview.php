@@ -1,10 +1,10 @@
 <?php
-    if(isset($_POST["title"], $_POST["description"], $_POST["fDate"], $_POST["tDate"], $_POST["image"])){
+    if(isset($_POST["title"], $_POST["description"], $_POST["fDate"], $_POST["tDate"])){
         require_once '../controller/database.php';
         require_once '../models/Database.php';
         require_once '../models/Admin.php';
         session_start();
-        $output ='';
+        $output ='abaa';
         $title=$_POST["title"];
         $description=$_POST["description"];
         $fDate=$_POST["fDate"];

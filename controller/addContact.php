@@ -7,7 +7,7 @@
         $email=$_POST['email'];
         $category=$_POST['category'];
         $message=$_POST['message'];
-        
+        echo '<script type="text/javascript" src="../js/sweetalert2.all.min.js"></script>';
     }
 
     $contact= new Contact();
@@ -15,11 +15,22 @@
     if(empty($fname)||empty($lname)||empty($email)||empty($category)||empty($message)){
         
         // header("Location: sell_welcome.php?error=emptyfields");
-        $message1="Pls some fields are empty. Do well to fill all of them";
-        echo "<SCRIPT> 
-            alert('$message1')
-            window.location.replace('../contact_us_new.php');
-        </SCRIPT>";
+        // $message1="Pls some fields are empty. Do well to fill all of them";
+        // echo "<SCRIPT> 
+        //     alert('$message1')
+        //     window.location.replace('../contact_us_new.php');
+        // </SCRIPT>";
+        echo 'Empty fields';
+        echo <<<_GOTOCONTACT
+				<script>Swal.fire({
+					icon: 'error',
+					title: 'Oops... some fields are empty',
+					text: 'Pls ensure that all fields in the form are filled'
+				}).then(function() {
+					window.location = "../contact_us_new.php";
+				});</script>
+								
+		_GOTOCONTACT;
         exit();
     }else{
         if($category=='comment'){
@@ -32,11 +43,22 @@
             ];
 
             if($contact->addContact($contactData)){
-                $message2="Message sent. Thank you for reaching out to us :)";
-                echo "<SCRIPT> 
-                    alert('$message2')
-                    window.location.replace('../index.html');
-                </SCRIPT>";
+                // $message2="Message sent. Thank you for reaching out to us :)";
+                // echo "<SCRIPT> 
+                //     alert('$message2')
+                //     window.location.replace('../index.html');
+                // </SCRIPT>";
+                echo 'Sent message';
+                echo <<<_GOTOHOME
+                    <script>Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'Thank you for reaching out to us :)'
+                    }).then(function() {
+                        window.location = "../index.html";
+                    });</script>
+                                    
+            _GOTOHOME;
                 exit();
             }
             
@@ -51,11 +73,22 @@
             ];
 
             if($contact->addContact($contactData)){
-                $message2="Message sent. Thank you for reaching out to us :)";
-                echo "<SCRIPT> 
-                    alert('$message2')
-                    window.location.replace('../index.html');
-                </SCRIPT>";
+                // $message2="Message sent. Thank you for reaching out to us :)";
+                // echo "<SCRIPT> 
+                //     alert('$message2')
+                //     window.location.replace('../index.html');
+                // </SCRIPT>";
+                // echo 'Sent message';
+                echo <<<_GOTOHOME
+                    <script>Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'Thank you for reaching out to us :)'
+                    }).then(function() {
+                        window.location = "../index.html";
+                    });</script>
+                                    
+            _GOTOHOME;
                 exit();
             }
             else{
@@ -72,11 +105,22 @@
             ];
 
             if($contact->addContact($contactData)){
-                $message2="Message sent. Thank you for reaching out to us :)";
-                echo "<SCRIPT> 
-                    alert('$message2')
-                    window.location.replace('../index.html');
-                </SCRIPT>";
+                // $message2="Message sent. Thank you for reaching out to us :)";
+                // echo "<SCRIPT> 
+                //     alert('$message2')
+                //     window.location.replace('../index.html');
+                // </SCRIPT>";
+                echo 'Sent message';
+                echo <<<_GOTOHOME
+                    <script>Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'Thank you for reaching out to us :)'
+                    }).then(function() {
+                        window.location = "../index.html";
+                    });</script>
+                                    
+            _GOTOHOME;
                 exit();
             }
             else{
@@ -93,11 +137,22 @@
             ];
 
             if($contact->addContact($contactData)){
-                $message2="Message sent. Thank you for reaching out to us :)";
-                echo "<SCRIPT> 
-                    alert('$message2')
-                    window.location.replace('../index.html');
-                </SCRIPT>";
+                // $message2="Message sent. Thank you for reaching out to us :)";
+                // echo "<SCRIPT> 
+                //     alert('$message2')
+                //     window.location.replace('../index.html');
+                // </SCRIPT>";
+                echo 'Sent message';
+                echo <<<_GOTOHOME
+                    <script>Swal.fire({
+                        icon: 'success',
+                        title: 'Message Sent!',
+                        text: 'Thank you for reaching out to us :)'
+                    }).then(function() {
+                        window.location = "../index.html";
+                    });</script>
+                                    
+            _GOTOHOME;
                 exit();
             }
             else{

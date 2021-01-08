@@ -148,8 +148,10 @@
 				$.ajax({
 					url:'eventPreview.php',
 					method: 'POST',
+					enctype: 'multipart/form-data',
 					contentType: false,
 					processData: false,
+					cache: false,
 					data: {title: title, description: description, fDate: fDate, tDate: tDate, image: image},
 					success:function(data){
 						$('#preview').html(data);

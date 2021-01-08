@@ -16,6 +16,7 @@
 	<link rel="stylesheet" type="text/css" href="../bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="adminIndex.css">
+	<script type="text/javascript" src="../js/sweetalert2.all.min.js"></script>
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #007F00;">
@@ -59,8 +60,18 @@
 
 							}else{
 								//if not, redirect to sign in page
-								echo '<script>alert("Pls sign in")</script>';
-                				echo '<script>window.location.href = "../admin/adminSignIn.php";</script>';
+								echo <<<_GOTOSIGNIN
+								<script>Swal.fire({
+									icon: 'error',
+									title: 'Oops... no authentication',
+									text: 'Pls sign in'
+								}).then(function() {
+									window.location = "../admin/adminSignIn.php";
+								});</script>
+								
+								_GOTOSIGNIN;
+								
+                				// echo '<script>window.location.href = "../admin/adminSignIn.php";</script>';
 
 								
 							}
@@ -137,5 +148,6 @@
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../bootstrap.min.js"></script>
+	
 </body>
 </html>
