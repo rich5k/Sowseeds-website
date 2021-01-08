@@ -87,6 +87,70 @@
                 return false;
             }
         }
+
+        //gets the number of events
+        public function getEventsNum(){
+            //Prepare Query
+            $this->db->query('select eventID from events');
+
+            //Execute
+            $this->db->execute();
+            
+
+            //Fetch One record
+            $numRows=$this->db->rowCount();
+            
+            return $numRows;
+            
+        }
+
+        //gets the number of teachings
+        public function getTeachingsNum(){
+            //Prepare Query
+            $this->db->query('select teachingID from teachings');
+
+            //Execute
+            $this->db->execute();
+            
+
+            //Fetch One record
+            $numRows=$this->db->rowCount();
+            
+            return $numRows;
+            
+        }
+
+        //gets the number of contacts
+        public function getContactsNum(){
+            //Prepare Query
+            $this->db->query('select contactID from contacts');
+
+            //Execute
+            $this->db->execute();
+            
+
+            //Fetch One record
+            $numRows=$this->db->rowCount();
+            
+            return $numRows;
+            
+        }
+
+        //gets the number of donations
+        public function getDonationsNum(){
+            //Prepare Query
+            $this->db->query('select donationID from donations');
+
+            //Execute
+            $this->db->execute();
+            
+
+            //Fetch One record
+            $numRows=$this->db->rowCount();
+            
+            return $numRows;
+            
+        }
         
     }
 ?>

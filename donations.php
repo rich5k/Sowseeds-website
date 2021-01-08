@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Events</title>
+	<title>Donations Page</title>
 	<link rel="icon" href="./assets/SIM logo.png" type="image/gif">
 	<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet"> 
 	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="events_new.css">
+	<link rel="stylesheet" href="donations.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #007F00;">
@@ -18,22 +18,22 @@
 		  </button>
 		  <!-- Collapses navbar items into Hamburger -->
 		  <div class="collapse navbar-collapse" id="navbarNav">
-		    <ul class="navbar-nav">
-		      <li class="nav-item dropdown">
+		  	<ul class="navbar-nav">
+		    <li class="nav-item dropdown">
 			        <a class="nav-link dropdown-toggle" href="index.html" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 			          About Us
 			        </a>
 			        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			          <a class="dropdown-item" href="index.html">Our Purpose</a>
+			          <a class="dropdown-item" href="index.html">Our Purpose </a>
 			          <a class="dropdown-item" href="our_pastor_new.html">Our Pastor</a>
 			          <a class="dropdown-item" href="our_team.html">Our Team</a>
 			          <a class="dropdown-item" href="our_values_new.html">Our Values</a>
 			          <a class="dropdown-item" href="statement_of_faith_new.html">Statement of Faith</a>
 			          <a class="dropdown-item" href="contact_us_new.php">Contact Us</a>
 			          
-			    </li>
-		      <li class="nav-item active">
-		        <a class="nav-link" href="events_new.php">Events <span class="sr-only">(current)</span></a>
+			   </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="events_new.php">Events</a>
 		      </li>
 		      <li class="nav-item">
 		        <a class="nav-link" href="mission_vision_new.html">Mission & Vision</a>
@@ -44,68 +44,50 @@
 		      <li class="nav-item">
 		        <a class="nav-link" href="directions_new.html">Directions</a>
 		      </li>
-		      <li class="nav-item">
-		        <a class="nav-link" href="donations.php">Donations</a>
+		      <li class="nav-item active">
+		        <a class="nav-link" href="donation.php">Donations<span class="sr-only">(current)</span></a>
 		      </li>
 		    </ul>
 			</div>
  			
  		</div>
 	</nav>
-		<div class="container">
+	
+
+	
+	<div class="container">
 		<!-- <img src="nature4.jpg" class="img-fluid" alt="Responsive image"> -->
 		
 		<div class="row">
 			<div class="col-lg-12">
 				<div id="content">
-					<h1>What's Happening?</h1>
+					<h1>Our Purpose</h1>
 				</div>
 			</div>
 		</div>
 		<div class="jumbotron">
-			<div class="row">
+			<h2>1. Know God</h2>
+			<p>We consider reaching people who do not know God personally to be one of our greatest responsibilities. Our Sunday services are for people at all stages in their spiritual journey but are primarily designed for those who do not yet have a genuine relationship with God. Our Sunday services focus on four values:</p>
 
-				<div class="col-sm-6">
-					<div>
-						<img src="./assets/_MG_0082.jpg" class="img-thumbnail">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="content1">
-						<h3>Children's Camp</h3>
-						<p>During every summer break, a children camp is organised to teach children the Word of God in a fun and exciting way through various activities and games. </p>
-						<hr>
-					<button type="button" class="btn btn-primary btn-lg"><i class="fa fa-user-plus"></i> Register Now!</button>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="content1">
-						<h3>AWANA</h3>
-						<p>Every weekend, boys and girls in the community are gathered to be taught the Word of God through fun and games </p>
-						<hr>
-					<button type="button" class="btn btn-primary btn-lg">Join Us Today <i class="fa fa-smile-o" aria-hidden="true"></i></button>
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div>
-						<img src="./assets/_MG_1914.jpg" class="img-thumbnail">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div>
-						<img src="events3.jpg" class="img-thumbnail">
-					</div>
-				</div>
-				<div class="col-sm-6">
-					<div class="content1">
-						<h3>Worship Night: My Thanksgiving Service</h3>
-						<p>On the 25th of December of every year, we come to the Lord's feet to worship and thank Him for keep us and bring us safely to the end of the year. </p>
-						<hr>
-					<button type="button" class="btn btn-primary btn-lg">RSVP Now! <i class="fa fa-address-book-o" aria-hidden="true"></i></button>
-					</div>
-				</div>
-			</div>
-		</div>
+			<ol>
+				<li>Church should be enjoyable.</li>
+				<li>Church should be a place where people experience God’s presence.</li>
+				<li>Church should be a place where people learn how the Bible applies to their daily lives.</li>
+				<li>Church should be a place where people can accept Jesus as their Lord and Savior.</li>
+			</ol>
+			<br>
+			<h2>2. Find Freedom</h2>
+			<p>We believe life change happens in the context of relationships. Small Groups have one simple purpose: to bring people together. God created us to live in community with others, and it is only then that we can experience the full life He intends for us. </p>
+
+			<p>When we do life together, our problems become smaller as God uses others to bring support and encouragement to our lives. Small Groups become a place where others don’t just know your name but care about what is happening in your life and want to support you in your spiritual journey.</p>
+			<br>
+			<h2>3. Discover Purpose</h2>
+			<p>The Growth Track exists to help you discover and develop your purpose and live the full life God created for you. The Growth Track is made up of four steps, which guide you through next steps in your journey to know God, find freedom, discover purpose, and make a difference.</p>
+
+			<br>
+
+			<h2>4. Make a Difference</h2>
+			<p>All of us were created by God to make a difference in the world around us. God has a place for you where your unique abilities and passions can impact the lives of others. We believe your life will never make sense until you find, develop, and fulfill your purpose. Discover what you do well, and take steps to use your gifts to make a difference.</p>
 
 			
 		    

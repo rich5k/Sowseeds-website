@@ -1,7 +1,8 @@
 <?php
 	require_once '../controller/database.php';
     require_once '../controller/register.php';
-    require_once '../models/Database.php';
+	require_once '../models/Database.php';
+	require_once '../models/Admin.php';
     session_start();
     
     
@@ -85,22 +86,22 @@
     <div class="bg"></div>
 	<div class="bg bg2"></div>
 	<div class="bg bg3"></div>
-	
+	<?php $admin= new Admin(); ?>
     <div class="container content">
         <div class="row">
             <div class=" jumbotron col-lg-6">
-                6 <br> Events
+			<?php echo $admin->getEventsNum(); ?> <br> Events
             </div>
             <div class="jumbotron col-lg-6">
-                10 <br> Teachings
+			<?php echo $admin->getTeachingsNum(); ?> <br> Teachings
             </div>
         </div>
         <div class="row">
             <div class="jumbotron col-lg-6">
-                200 <br> Donations
+			<?php echo $admin->getDonationsNum(); ?> <br> Donations
             </div>
             <div class="jumbotron col-lg-6">
-                50 <br> Contacts
+			<?php echo $admin->getContactsNum(); ?> <br> Contacts
             </div>
         </div>
     </div>
