@@ -7,6 +7,7 @@
 	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="donations.css">
+	<link rel="stylesheet" href="./css/payment.css">
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #007F00;">
@@ -61,34 +62,42 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div id="content">
-					<h1>Our Purpose</h1>
+					<h1>Support Our Work</h1>
 				</div>
 			</div>
 		</div>
-		<div class="jumbotron">
-			<h2>1. Know God</h2>
-			<p>We consider reaching people who do not know God personally to be one of our greatest responsibilities. Our Sunday services are for people at all stages in their spiritual journey but are primarily designed for those who do not yet have a genuine relationship with God. Our Sunday services focus on four values:</p>
+		<div class="jumbotron ">
+        <form action="../controller/testRegister.php" method="post" enctype="multipart/form-data" id="payment-form">
+                <div class="content1">
+                    <label for="name">Name*</label>
+                    <input type="text" name="name" id="name" placeholder="Kwame Ofori" required> <br>
+                    <label for="email">Email*</label>
+                    <input type="email" name="email" id="email" placeholder="kofori23@gmail.com" required><br>
+                    <label for="amount">Amount*</label>
+                    <input type="text" name="amount" id="amount" placeholder="234.34" required> <br>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                    <input type="button" id="stripeBtn" name="stripeBtn" class="btn btn-primary" value="Credit Card">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                    <input type="button" id="momoBtn" name="momoBtn" class="btn btn-primary" value="MoMo">
+                    </div>
+                </div>
+                <div id="payCredentials">
+                    <div style="width: 30em" #stripecardelement id="card-element">
+                    <!-- A Stripe Element will be inserted here. -->
+                    </div>
 
-			<ol>
-				<li>Church should be enjoyable.</li>
-				<li>Church should be a place where people experience God’s presence.</li>
-				<li>Church should be a place where people learn how the Bible applies to their daily lives.</li>
-				<li>Church should be a place where people can accept Jesus as their Lord and Savior.</li>
-			</ol>
-			<br>
-			<h2>2. Find Freedom</h2>
-			<p>We believe life change happens in the context of relationships. Small Groups have one simple purpose: to bring people together. God created us to live in community with others, and it is only then that we can experience the full life He intends for us. </p>
+                    <!-- Used to display form errors. -->
+                    <div style="width: 30em; height: 2em; letter-spacing: 0em" id="card-errors" role="alert"></div>
+                      
+                </div>
+                <br>
 
-			<p>When we do life together, our problems become smaller as God uses others to bring support and encouragement to our lives. Small Groups become a place where others don’t just know your name but care about what is happening in your life and want to support you in your spiritual journey.</p>
-			<br>
-			<h2>3. Discover Purpose</h2>
-			<p>The Growth Track exists to help you discover and develop your purpose and live the full life God created for you. The Growth Track is made up of four steps, which guide you through next steps in your journey to know God, find freedom, discover purpose, and make a difference.</p>
-
-			<br>
-
-			<h2>4. Make a Difference</h2>
-			<p>All of us were created by God to make a difference in the world around us. God has a place for you where your unique abilities and passions can impact the lives of others. We believe your life will never make sense until you find, develop, and fulfill your purpose. Discover what you do well, and take steps to use your gifts to make a difference.</p>
-
+                
+                <button type="submit" name="submit" class="btn btn-success" >Donate</button>
+            </form>
 			
 		    
 		</div>
@@ -120,5 +129,7 @@
 	</footer>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="bootstrap.min.js"></script>
+	<script src="https://js.stripe.com/v3/"></script>
+    <script type="text/javascript" src="./js/charge.js"></script>
 </body>
 </html>
