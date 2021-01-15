@@ -1,7 +1,8 @@
 <?php
 	require_once '../controller/database.php';
     require_once '../controller/register.php';
-    require_once '../models/Database.php';
+	require_once '../models/Database.php';
+	require_once '../models/Teaching.php';
     session_start();
     
     
@@ -101,7 +102,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th scope="row">1</th>
                     <td>Hello Hello</td>
                     <td>Bro David</td>
@@ -109,8 +110,34 @@
 					<td>Sunday</td>
 					<td><audio src="../assets/sounds/sound1.ogg" type="audio/mpeg" controls></audio>	</td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+                </tr> -->
                
+				<?php
+
+// Instantiate Teaching
+$teaching= new Teaching();
+
+//Get teaching
+$teachings= $teaching->getTeachings();
+
+$length= count($teachings);
+$counter=0;
+//displays the details of each event
+foreach ($teachings as $teach) {
+	$counter++;
+
+	echo '<tr>';
+	echo '<th scope="row">'.$counter.'</th>';
+	echo '<td>'.$teach->title.'</td>';
+	echo '<td>'.$teach->minister.'</td>';
+	echo '<td>'.$teach->teachDate.'</td>';
+	echo '<td>'.$teach->teachDay.'</td>';
+	echo '<td><audio src="../assets/sounds/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
+	echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+	echo '</tr>';
+};
+
+?>
                 
             </tbody>
         </table>
