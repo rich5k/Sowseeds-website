@@ -4,27 +4,29 @@
         require_once '../models/Database.php';
         require_once '../models/Admin.php';
         session_start();
-        $output ='abaa';
+        $output ='';
         $title=$_POST["title"];
         $description=$_POST["description"];
         $fDate=$_POST["fDate"];
         $tDate=$_POST["tDate"];
-        echo $_FILES["image"]['tmp_name'];
-        $image=$_FILES["image"]["name"];
+        // echo $_FILES[0]['tmp_name'];
+        $image=$_FILES[0]["name"];
         $adminID=$_SESSION['sessionId'];
         
         
 
         // adminEvents Data
         $adminEventsData= [
-            "adminId"=> $adminID,
+            "adminID"=> $adminID,
             "title"=> $title,
             "description"=> $description,
             "fDate"=> $fDate,
             "tDate"=> $tDate,
             "image"=> $image
         ];
-
+        // $output .= '
+        //     title
+        // ';
         // Instantiate admin
         $admin= new Admin();
 
@@ -49,7 +51,7 @@
                 ';
             }else{
                 $output.='
-                <p>Date: '.$fDate.'to '.$tDate.'</p>
+                <p>Date: '.$fDate.' <br>to <br>'.$tDate.'</p>
                 ';
             }
             $output.='

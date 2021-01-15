@@ -84,7 +84,7 @@
         <div class="col-lg-6">
             <h2>Add An Event</h2>
             <div class="jumbotron">
-			<form action="../controller/testRegister.php" method="post" enctype="multipart/form-data">
+			<form id='form' action="../controller/testRegister.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="Title" required> <br>
@@ -142,17 +142,27 @@
 			var description=$('#description').val();
 			var fDate=$('#fDate').val();
 			var tDate=$('#tDate').val();
-			var image=$('#image').val();
-			alert(image);
+			// var myForm = $("#form")[5]
+			var form_data = new FormData();
+			
+			$.each($('#image')[0].files, function(i,file){
+				form_data.append(i,file);
+			});
+			form_data.append("title",title);
+			form_data.append("description",description);
+			form_data.append("fDate",fDate);
+			form_data.append("tDate",tDate);			
+
 			if(title !='' && description !='' &&fDate !='' &&tDate !='' &&image !='' ){
 				$.ajax({
-					url:'eventPreview.php',
+					url:'./eventPreview.php',
 					method: 'POST',
-					enctype: 'multipart/form-data',
 					contentType: false,
 					processData: false,
 					cache: false,
-					data: {title: title, description: description, fDate: fDate, tDate: tDate, image: image},
+					async: false,
+					enctype: 'multipart/form-data',
+					data: form_data,
 					success:function(data){
 						$('#preview').html(data);
 					}
