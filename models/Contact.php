@@ -28,6 +28,21 @@ require_once 'Database.php';
             }
         }
 
+        //gets all contacts
+        public function getContacts(){
+            //Prepare Query
+            $this->db->query('select * from contacts');
+
+            
+            //Execute
+            $this->db->execute();
+            
+
+            //Fetch One record
+            $results=$this->db->resultset();
+            return $results;
+            
+        }
       
     }
 ?>

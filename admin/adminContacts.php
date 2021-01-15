@@ -1,7 +1,8 @@
 <?php
 	require_once '../controller/database.php';
     require_once '../controller/register.php';
-    require_once '../models/Database.php';
+	require_once '../models/Database.php';
+	require_once '../models/Contact.php';
     session_start();
     
     
@@ -100,7 +101,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -108,8 +109,34 @@
 					<td>Question</td>
 					<td>How donations get to the ministry?</td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+                </tr> -->
                
+			   <?php
+
+					// Instantiate Contact
+					$contact= new Contact();
+                
+					//Get Product
+					$contacts= $contact->getContacts();
+
+					$length= count($contacts);
+					$counter=0;
+					//displays the details of each product
+					foreach ($contacts as $cont) {
+						$counter++;
+
+						echo '<tr>';
+						echo '<th scope="row">'.$counter.'</th>';
+						echo '<td>'.$cont->fname.'</td>';
+						echo '<td>'.$cont->lname.'</td>';
+						echo '<td>'.$cont->email.'</td>';
+						echo '<td>'.$cont->messageType.'</td>';
+						echo '<td>'.$cont->contactMessage.'</td>';
+						echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '</tr>';
+					};
+
+			   ?>
                 
             </tbody>
         </table>
