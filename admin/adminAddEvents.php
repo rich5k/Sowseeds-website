@@ -142,7 +142,6 @@
 			var description=$('#description').val();
 			var fDate=$('#fDate').val();
 			var tDate=$('#tDate').val();
-			// var myForm = $("#form")[5]
 			var form_data = new FormData();
 			
 			$.each($('#image')[0].files, function(i,file){

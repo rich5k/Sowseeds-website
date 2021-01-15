@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST["title"], $_POST["minister"], $_POST["teachDate"], $_POST["teachDay"], $_POST["audioFile"],)){
+    if(isset($_POST["title"], $_POST["minister"], $_POST["teachDate"], $_POST["teachDay"])){
         require_once '../controller/database.php';
         require_once '../models/Database.php';
         require_once '../models/Admin.php';
@@ -9,14 +9,14 @@
         $minister=$_POST["minister"];
         $teachDate=$_POST["teachDate"];
         $teachDay=$_POST["teachDay"];
-        $audioFile=$_POST["audioFile"];
+        $audioFile=$_FILES[0]["name"];
         $adminID=$_SESSION['sessionId'];
         
         
 
         // adminEvents Data
         $adminTeachingsData= [
-            "adminId"=> $adminID,
+            "adminID"=> $adminID,
             "title"=> $title,
             "minister"=> $minister,
             "teachDate"=> $teachDate,
@@ -27,7 +27,7 @@
         // Instantiate admin
         $admin= new Admin();
 
-        $audioName=$_FILES[$image]['name'];
+        // $audioName=$_FILES[$image]['name'];
 
         //adding to adminEvents
         if($admin->addPreviewTeachings($adminTeachingsData)){
@@ -39,7 +39,7 @@
             A Must Hear Msg. <br>
             Listen, be educated, do the work &  be blessed <br>
         </p>
-        <audio src="../assets/sounds/'.$audioName.'" type="audio/mpeg" controls></audio>	
+        <audio src="../assets/sounds/'.$audioFile.'" type="audio/mpeg" controls></audio>	
                     ';
             
         }else{

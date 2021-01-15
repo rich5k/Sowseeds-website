@@ -9,7 +9,6 @@
         $description=$_POST["description"];
         $fDate=$_POST["fDate"];
         $tDate=$_POST["tDate"];
-        // echo $_FILES[0]['tmp_name'];
         $image=$_FILES[0]["name"];
         $adminID=$_SESSION['sessionId'];
         

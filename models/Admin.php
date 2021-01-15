@@ -71,7 +71,7 @@
 
         public function addPreviewEvents($data){
             //Prepare Query
-            $this->db->query('insert into adminEvents(adminID,title, description, startTime, endTime, picture) values(:adminID, :title, :description, :fDate, :tDate, :image)');
+            $this->db->query('insert into adminEvents(adminID,title, description, teachDate, endTime, picture) values(:adminID, :title, :description, :fDate, :tDate, :image)');
 
             // Bind Values
             $this->db->bind(':adminID', $data['adminID']);
@@ -80,6 +80,26 @@
             $this->db->bind(':fDate', $data['fDate']);
             $this->db->bind(':tDate', $data['tDate']);
             $this->db->bind(':image', $data['image']);
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        public function addPreviewTeachings($data){
+            //Prepare Query
+            $this->db->query('insert into adminTeachings(adminID,title, minister, teachDate, teachDay, audioFile) values(:adminID, :title, :minister, :teachDate, :teachDay, :audioFile)');
+
+            // Bind Values
+            $this->db->bind(':adminID', $data['adminID']);
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':minister', $data['minister']);
+            $this->db->bind(':teachDate', $data['teachDate']);
+            $this->db->bind(':teachDay', $data['teachDay']);
+            $this->db->bind(':audioFile', $data['audioFile']);
 
             //Execute
             if($this->db->execute()){

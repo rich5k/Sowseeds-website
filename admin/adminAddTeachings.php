@@ -131,13 +131,26 @@
 			var minister=$('#minister').val();
 			var teachDate=$('#teachDate').val();
 			var teachDay=$('#teachDay').val();
-			var audioFile=$('#audio').val();
-
-			if(title !='' && minister !='' &&teachDate !='' &&teachDay !='' &&audioFile !='' ){
+			// var audioFile=$('#audio').val();
+			var form_data = new FormData();
+			
+			$.each($('#audio')[0].files, function(i,file){
+				form_data.append(i,file);
+			});
+			form_data.append("title",title);
+			form_data.append("minister",minister);
+			form_data.append("teachDate",teachDate);
+			form_data.append("teachDay",teachDay);
+			if(title !='' && minister !='' &&teachDate !='' &&teachDay !='' &&audio !='' ){
 				$.ajax({
-					url:'teachPreview.php',
+					url:'./teachPreview.php',
 					method: 'POST',
-					data: {title: title, minister: minister, teachDate: teachDate, teachDay: teachDay, audioFile: audioFile},
+					contentType: false,
+					processData: false,
+					cache: false,
+					async: false,
+					enctype: 'multipart/form-data',
+					data: form_data,
 					success:function(data){
 						$('#teaching').html(data);
 					}
