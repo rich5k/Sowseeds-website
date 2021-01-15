@@ -116,12 +116,12 @@
 					// Instantiate Contact
 					$contact= new Contact();
                 
-					//Get Product
+					//Get Contact
 					$contacts= $contact->getContacts();
 
 					$length= count($contacts);
 					$counter=0;
-					//displays the details of each product
+					//displays the details of each contact
 					foreach ($contacts as $cont) {
 						$counter++;
 

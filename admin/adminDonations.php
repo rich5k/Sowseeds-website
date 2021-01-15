@@ -1,7 +1,8 @@
 <?php
 	require_once '../controller/database.php';
     require_once '../controller/register.php';
-    require_once '../models/Database.php';
+	require_once '../models/Database.php';
+	require_once '../models/Donation.php';
     session_start();
     
     
@@ -100,7 +101,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th scope="row">1</th>
                     <td>Mark</td>
                     <td>Otto</td>
@@ -108,8 +109,35 @@
 					<td>chohdfdwd23423</td>
 					<td>GHS 50.00</td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+                </tr> -->
                 
+				<?php
+
+					// Instantiate Donation
+					$donation= new Donation();
+                
+					//Get Donation
+					$donations= $donation->getDonations();
+
+					$length= count($donations);
+					$counter=0;
+					//displays the details of each product
+					foreach ($donations as $dona) {
+						$counter++;
+
+						echo '<tr>';
+						echo '<th scope="row">'.$counter.'</th>';
+						echo '<td>'.$dona->fname.'</td>';
+						echo '<td>'.$dona->lname.'</td>';
+						echo '<td>'.$dona->email.'</td>';
+						echo '<td>'.$dona->paymentType.'</td>';
+						echo '<td>'.$dona->accountDetails.'</td>';
+						echo '<td>'.$dona->amount.'</td>';
+						echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '</tr>';
+					};
+
+			   ?>
                 
             </tbody>
         </table>
