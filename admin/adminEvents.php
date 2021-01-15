@@ -1,7 +1,8 @@
 <?php
 	require_once '../controller/database.php';
     require_once '../controller/register.php';
-    require_once '../models/Database.php';
+	require_once '../models/Database.php';
+	require_once '../models/Event.php';
     session_start();
     
     
@@ -104,7 +105,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
+                <!-- <tr>
                     <th scope="row">1</th>
                     <td>Watch Night</td>
                     <td>We are going to show gratittude to God for all that He has done for us in 2020</td>
@@ -112,8 +113,34 @@
 					<td>2020-12-31</td>
 					<td><img style="width: 200px;" src="../assets/events1.jpg" alt=""></td>
                     <td><button class='btn btn-dark'><i class="fa fa-trash" aria-hidden="true"></i></button></td>
-                </tr>
+                </tr> -->
                 
+				<?php
+
+					// Instantiate Event
+					$event= new Event();
+                
+					//Get event
+					$events= $event->getEvents();
+
+					$length= count($events);
+					$counter=0;
+					//displays the details of each event
+					foreach ($events as $eve) {
+						$counter++;
+
+						echo '<tr>';
+						echo '<th scope="row">'.$counter.'</th>';
+						echo '<td>'.$eve->title.'</td>';
+						echo '<td>'.$eve->description.'</td>';
+						echo '<td>'.$eve->startDate.'</td>';
+						echo '<td>'.$eve->endDate.'</td>';
+						echo '<td><img style="width: 200px;" src="../assets/'.$eve->picture.'" alt=""></td>';
+						echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '</tr>';
+					};
+
+			   ?>
                 
             </tbody>
         </table>
