@@ -12,7 +12,7 @@
         //gets the Event details
         public function getEvents(){
             //Prepare Query
-            $this->db->query('select * from donations');
+            $this->db->query('select * from events');
 
             //Execute
             $this->db->execute();

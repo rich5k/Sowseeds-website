@@ -89,6 +89,25 @@
             }
         }
 
+        public function addEvents($data){
+            //Prepare Query
+            $this->db->query('insert into events(title, description, startTime, endTime, picture) values(:title, :description, :fDate, :tDate, :image)');
+
+            // Bind Values
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':description', $data['description']);
+            $this->db->bind(':fDate', $data['fDate']);
+            $this->db->bind(':tDate', $data['tDate']);
+            $this->db->bind(':image', $data['image']);
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         public function addPreviewTeachings($data){
             //Prepare Query
             $this->db->query('insert into adminTeachings(adminID,title, minister, teachDate, teachDay, audioFile) values(:adminID, :title, :minister, :teachDate, :teachDay, :audioFile)');

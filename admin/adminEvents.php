@@ -133,8 +133,8 @@
 						echo '<th scope="row">'.$counter.'</th>';
 						echo '<td>'.$eve->title.'</td>';
 						echo '<td>'.$eve->description.'</td>';
-						echo '<td>'.$eve->startDate.'</td>';
-						echo '<td>'.$eve->endDate.'</td>';
+						echo '<td>'.$eve->startTime.'</td>';
+						echo '<td>'.$eve->endTime.'</td>';
 						echo '<td><img style="width: 200px;" src="../assets/'.$eve->picture.'" alt=""></td>';
 						echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 						echo '</tr>';

@@ -84,7 +84,7 @@
         <div class="col-lg-6">
             <h2>Add An Event</h2>
             <div class="jumbotron">
-			<form id='form' action="../controller/testRegister.php" method="post" enctype="multipart/form-data">
+			<form id='form' action="../controller/addEvent.php" method="post" enctype="multipart/form-data">
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="Title" required> <br>
