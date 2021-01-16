@@ -71,7 +71,7 @@
 
         public function addPreviewEvents($data){
             //Prepare Query
-            $this->db->query('insert into adminEvents(adminID,title, description, teachDate, endTime, picture) values(:adminID, :title, :description, :fDate, :tDate, :image)');
+            $this->db->query('insert into adminEvents(adminID,title, description, startTime, endTime, picture) values(:adminID, :title, :description, :fDate, :tDate, :image)');
 
             // Bind Values
             $this->db->bind(':adminID', $data['adminID']);

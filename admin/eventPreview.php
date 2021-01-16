@@ -11,7 +11,8 @@
         $tDate=$_POST["tDate"];
         $image=$_FILES[0]["name"];
         $adminID=$_SESSION['sessionId'];
-        
+        //creating file path
+        $path= "../assets/previewImages/".basename($_FILES[0]['name']); 
         
 
         // adminEvents Data
@@ -23,16 +24,20 @@
             "tDate"=> $tDate,
             "image"=> $image
         ];
-        // $output .= '
-        //     title
-        // ';
+        
         // Instantiate admin
         $admin= new Admin();
 
-        // $imageName=$_FILES['image']['name'];
+     
 
         //adding to adminEvents
         if($admin->addPreviewEvents($adminEventsData)){
+            if(move_uploaded_file($_FILES[0]['tmp_name'],$path)){
+                $message="Image uploaded successfullly";
+            }
+            else{
+                $message="There was a problem uploading image";
+            }
             $output.= '
                 <div class="col-sm-6">
                 <div>
