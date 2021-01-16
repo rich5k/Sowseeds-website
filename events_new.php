@@ -1,3 +1,11 @@
+<?php
+	require_once './controller/database.php';
+	require_once './models/Database.php';
+	require_once './models/Event.php';
+    session_start();
+    
+    
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,7 +73,7 @@
 		<div class="jumbotron">
 			<div class="row">
 
-				<div class="col-sm-6">
+				<!-- <div class="col-sm-6">
 					<div>
 						<img src="./assets/_MG_0082.jpg" class="img-thumbnail">
 					</div>
@@ -103,7 +111,46 @@
 						<hr>
 					<button type="button" class="btn btn-primary btn-lg">RSVP Now! <i class="fa fa-address-book-o" aria-hidden="true"></i></button>
 					</div>
-				</div>
+				</div> -->
+
+				<?php
+
+					// Instantiate Event
+					$event= new Event();
+                
+					//Get event
+					$events= $event->getEvents();
+
+					$length= count($events);
+					$counter=0;
+					//displays the details of each event
+					foreach ($events as $eve) {
+						$counter++;
+
+						echo '<div class="col-sm-6">';
+						echo '<div>';
+						echo '<img  src="./assets/eventImages/'.$eve->picture.'" class="img-thumbnail">';
+						echo '</div>';
+						echo '</div>';
+						echo '<div class="col-sm-6">';
+						echo '<div class="content1">';
+						echo '<h3>'.$eve->title.'</h3>';
+						echo '<p>'.$eve->description.'</p>';
+						if($eve->startTime==$eve->endTime){
+							echo '<p>Date: '.$eve->startTime.'</p>';
+							
+							
+						}else{
+							echo '<p>Date: '.$eve->startTime.' <br>to <br>'.$eve->endTime.'</p>';
+							
+							
+						}
+						echo '<hr>';
+						echo '</div>';
+						echo '</div>';
+					};
+
+			   ?>
 			</div>
 		</div>
 
