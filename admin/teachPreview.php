@@ -11,7 +11,8 @@
         $teachDay=$_POST["teachDay"];
         $audioFile=$_FILES[0]["name"];
         $adminID=$_SESSION['sessionId'];
-        
+        //creating file path
+        $path= "../assets/previewAudios/".basename($_FILES[0]['name']); 
         
 
         // adminEvents Data
@@ -31,6 +32,12 @@
 
         //adding to adminEvents
         if($admin->addPreviewTeachings($adminTeachingsData)){
+            if(move_uploaded_file($_FILES[0]['tmp_name'],$path)){
+                $message="Teaching uploaded successfullly";
+            }
+            else{
+                $message="There was a problem uploading teaching";
+            }
             $output.= '
             <p class="titles">
             '.$teachDay.', '.$teachDate.'<br>
