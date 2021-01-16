@@ -23,7 +23,7 @@ create table teachings(
     teachingID int not null primary key auto_increment,
     title varchar(255) not null,
     minister varchar(255) not null,
-    teachDate datetime not null,
+    teachDate date not null,
     teachDay varchar(255) not null,
     audioFile varchar(255) not null
 );
@@ -64,7 +64,7 @@ create table adminTeachings(
     adminID int not null,
     title varchar(255) not null,
     minister varchar(255) not null,
-    teachDate datetime not null,
+    teachDate date not null,
     teachDay varchar(255) not null,
     audioFile varchar(255) not null,
     foreign key (adminID) references Admin(adminID)

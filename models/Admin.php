@@ -128,6 +128,25 @@
             }
         }
 
+        public function addTeachings($data){
+            //Prepare Query
+            $this->db->query('insert into teachings(title, minister, teachDate, teachDay, audioFile) values(:title, :minister, :teachDate, :teachDay, :audioFile)');
+
+            // Bind Values
+            $this->db->bind(':title', $data['title']);
+            $this->db->bind(':minister', $data['minister']);
+            $this->db->bind(':teachDate', $data['teachDate']);
+            $this->db->bind(':teachDay', $data['teachDay']);
+            $this->db->bind(':audioFile', $data['audioFile']);
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
         //gets the number of events
         public function getEventsNum(){
             //Prepare Query

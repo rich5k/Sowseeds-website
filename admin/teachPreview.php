@@ -28,7 +28,6 @@
         // Instantiate admin
         $admin= new Admin();
 
-        // $audioName=$_FILES[$image]['name'];
 
         //adding to adminEvents
         if($admin->addPreviewTeachings($adminTeachingsData)){

@@ -85,7 +85,7 @@
         <div class="col-lg-6">
             <h2>Add A Teaching</h2>
             <div class="jumbotron">
-			<form action="../controller/testRegister.php" method="post" enctype='multipart/form-data'>
+			<form action="../controller/addTeaching.php" method="post" enctype='multipart/form-data'>
                 <div>
                     <label for="title">Title</label>
                     <input type="text" name="title" id="title" placeholder="Title" required> <br>
