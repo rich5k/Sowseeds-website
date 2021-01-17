@@ -127,7 +127,7 @@
 
 						echo '<tr>';
 						echo '<th scope="row">'.$counter.'</th>';
-						echo '<input type="hidden" name="teachingId" value="'.$cont->contactID.'"></input>';
+						echo '<input type="hidden" name="contactId" value="'.$cont->contactID.'"></input>';
 						echo '<td>'.$cont->fname.'</td>';
 						echo '<td>'.$cont->lname.'</td>';
 						echo '<td>'.$cont->email.'</td>';

@@ -121,19 +121,20 @@
 
 					$length= count($donations);
 					$counter=0;
-					//displays the details of each product
+					//displays the details of each donation
 					foreach ($donations as $dona) {
 						$counter++;
 
 						echo '<tr>';
 						echo '<th scope="row">'.$counter.'</th>';
+						echo '<input type="hidden" name="donationId" value="'.$dona->donationID.'"></input>';
 						echo '<td>'.$dona->fname.'</td>';
 						echo '<td>'.$dona->lname.'</td>';
 						echo '<td>'.$dona->email.'</td>';
 						echo '<td>'.$dona->paymentType.'</td>';
 						echo '<td>'.$dona->accountDetails.'</td>';
 						echo '<td>'.$dona->amount.'</td>';
-						echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '<td><button class="btn btn-dark" onclick="deleteDonation(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 						echo '</tr>';
 					};
 
@@ -169,6 +170,24 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+		function deleteDonation(e){
+			Swal.fire({
+				title: 'Do you want to delete this donation?',
+				showDenyButton: true,
+				showCancelButton: true,
+				confirmButtonText: `Delete`,
+				denyButtonText: `Don't delete`,
+				}).then((result) => {
+				
+				if (result.isConfirmed) {
+					Swal.fire('Deleted!', '', 'success')
+				} else if (result.isDenied) {
+					Swal.fire('Donation is not deleted', '', 'info')
+				}
+			})
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../bootstrap.min.js"></script>
 </body>
