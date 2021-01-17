@@ -131,12 +131,13 @@
 
 						echo '<tr>';
 						echo '<th scope="row">'.$counter.'</th>';
+						echo '<input type="hidden" name="eventId" value="'.$eve->eventID.'"></input>';
 						echo '<td>'.$eve->title.'</td>';
 						echo '<td>'.$eve->description.'</td>';
 						echo '<td>'.$eve->startTime.'</td>';
 						echo '<td>'.$eve->endTime.'</td>';
 						echo '<td><img style="width: 200px;" src="../assets/'.$eve->picture.'" alt=""></td>';
-						echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '<td><button class="btn btn-dark" onclick="deleteEvent(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 						echo '</tr>';
 					};
 
@@ -173,6 +174,24 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+		function deleteEvent(e){
+			Swal.fire({
+				title: 'Do you want to delete this event?',
+				showDenyButton: true,
+				showCancelButton: true,
+				confirmButtonText: `Delete`,
+				denyButtonText: `Don't delete`,
+				}).then((result) => {
+				
+				if (result.isConfirmed) {
+					Swal.fire('Deleted!', '', 'success')
+				} else if (result.isDenied) {
+					Swal.fire('Event is not deleted', '', 'info')
+				}
+			})
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../bootstrap.min.js"></script>
 	
