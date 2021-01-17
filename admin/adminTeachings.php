@@ -122,18 +122,19 @@ $teachings= $teaching->getTeachings();
 
 $length= count($teachings);
 $counter=0;
-//displays the details of each event
+//displays the details of each teaching
 foreach ($teachings as $teach) {
 	$counter++;
 
 	echo '<tr>';
 	echo '<th scope="row">'.$counter.'</th>';
+	echo '<input type="hidden" name="teachingId" value="'.$teach->teachingID.'"></input>';
 	echo '<td>'.$teach->title.'</td>';
 	echo '<td>'.$teach->minister.'</td>';
 	echo '<td>'.$teach->teachDate.'</td>';
 	echo '<td>'.$teach->teachDay.'</td>';
 	echo '<td><audio src="../assets/sounds/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
-	echo '<td><button class="btn btn-dark"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+	echo '<td><button class="btn btn-dark" onclick="deleteTeaching(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 	echo '</tr>';
 };
 
@@ -170,6 +171,24 @@ foreach ($teachings as $teach) {
 			</div>
 		</div>
 	</footer>
+	<script>
+		function deleteTeaching(e){
+			Swal.fire({
+				title: 'Do you want to delete this teaching?',
+				showDenyButton: true,
+				showCancelButton: true,
+				confirmButtonText: `Delete`,
+				denyButtonText: `Don't delete`,
+				}).then((result) => {
+				
+				if (result.isConfirmed) {
+					Swal.fire('Deleted!', '', 'success')
+				} else if (result.isDenied) {
+					Swal.fire('Teaching is not deleted', '', 'info')
+				}
+			})
+		}
+	</script>
 	<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="../bootstrap.min.js"></script>
 </body>
