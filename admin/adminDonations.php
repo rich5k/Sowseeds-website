@@ -134,7 +134,7 @@
 						echo '<td>'.$dona->paymentType.'</td>';
 						echo '<td>'.$dona->accountDetails.'</td>';
 						echo '<td>'.$dona->amount.'</td>';
-						echo '<td><button class="btn btn-dark" onclick="deleteDonation(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '<td><button class="btn btn-dark" onclick="deleteDonation('.$dona->donationID.')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 						echo '</tr>';
 					};
 

@@ -156,6 +156,22 @@
             }
         }
 
+        public function deleteDonation($data){
+            //Prepare Query
+            $this->db->query('delete from donations where donationID= :donationID');
+
+            // Bind Values
+            $this->db->bind(':donationID', $data['donationID']);
+            
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
 
         public function addPreviewTeachings($data){
             //Prepare Query
