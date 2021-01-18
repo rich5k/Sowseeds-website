@@ -104,7 +104,7 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id='tableContent'>
                 <!-- <tr>
                     <th scope="row">1</th>
                     <td>Watch Night</td>
@@ -136,8 +136,8 @@
 						echo '<td>'.$eve->description.'</td>';
 						echo '<td>'.$eve->startTime.'</td>';
 						echo '<td>'.$eve->endTime.'</td>';
-						echo '<td><img style="width: 200px;" src="../assets/'.$eve->picture.'" alt=""></td>';
-						echo '<td><button class="btn btn-dark" onclick="deleteEvent(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+						echo '<td><img style="width: 200px;" src="../assets/eventImages/'.$eve->picture.'" alt=""></td>';
+						echo '<td><button class="btn btn-dark" onclick="deleteEvent('.$eve->eventID.')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 						echo '</tr>';
 					};
 
@@ -175,7 +175,7 @@
 		</div>
 	</footer>
 	<script>
-		function deleteEvent(e){
+		function deleteEvent(eventID){
 			Swal.fire({
 				title: 'Do you want to delete this event?',
 				showDenyButton: true,
@@ -185,7 +185,22 @@
 				}).then((result) => {
 				
 				if (result.isConfirmed) {
-					Swal.fire('Deleted!', '', 'success')
+					$.ajax({
+						url: "../controller/deleteEvent.php",
+						type: "POST",
+						data: {
+							id: eventID
+						},
+						// dataType: "html",
+						success: function(data){
+							$('#tableContent').html(data);
+							Swal.fire('Deleted!', '', 'success');
+
+						},
+						error: function(xhr, ajaxOptions, thrownError){
+							Swal.fire('Error deleting!', 'Please try again', 'error');
+						}
+					})
 				} else if (result.isDenied) {
 					Swal.fire('Event is not deleted', '', 'info')
 				}

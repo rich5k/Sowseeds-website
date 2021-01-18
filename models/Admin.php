@@ -108,6 +108,23 @@
             }
         }
 
+        public function deleteEvent($data){
+            //Prepare Query
+            $this->db->query('delete from events where eventID= :eventID');
+
+            // Bind Values
+            $this->db->bind(':eventID', $data['eventID']);
+            
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+
         public function addPreviewTeachings($data){
             //Prepare Query
             $this->db->query('insert into adminTeachings(adminID,title, minister, teachDate, teachDay, audioFile) values(:adminID, :title, :minister, :teachDate, :teachDay, :audioFile)');

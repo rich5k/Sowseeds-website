@@ -133,7 +133,7 @@ foreach ($teachings as $teach) {
 	echo '<td>'.$teach->minister.'</td>';
 	echo '<td>'.$teach->teachDate.'</td>';
 	echo '<td>'.$teach->teachDay.'</td>';
-	echo '<td><audio src="../assets/sounds/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
+	echo '<td><audio src="../assets/teachingAudios/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
 	echo '<td><button class="btn btn-dark" onclick="deleteTeaching(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 	echo '</tr>';
 };

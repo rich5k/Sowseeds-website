@@ -47,7 +47,7 @@
                                     
             _GOTOTEACHINGS;
         }else{
-            echo '<script>alert("Unable to add Events Preview table")</script>';
+            echo '<script>alert("Unable to add Teaching table")</script>';
             echo '<script>window.location.href = "../admin/adminAddTeachings.php";</script>';
        
             exit(); 
