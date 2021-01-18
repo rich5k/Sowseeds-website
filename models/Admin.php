@@ -124,6 +124,22 @@
             }
         }
 
+        public function deleteTeaching($data){
+            //Prepare Query
+            $this->db->query('delete from teachings where teachingID= :teachingID');
+
+            // Bind Values
+            $this->db->bind(':teachingID', $data['teachingID']);
+            
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
 
         public function addPreviewTeachings($data){
             //Prepare Query

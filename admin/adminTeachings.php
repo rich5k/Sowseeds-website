@@ -101,7 +101,7 @@
                     <th scope="col"></th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id='tableContent'>
                 <!-- <tr>
                     <th scope="row">1</th>
                     <td>Hello Hello</td>
@@ -134,7 +134,7 @@ foreach ($teachings as $teach) {
 	echo '<td>'.$teach->teachDate.'</td>';
 	echo '<td>'.$teach->teachDay.'</td>';
 	echo '<td><audio src="../assets/teachingAudios/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
-	echo '<td><button class="btn btn-dark" onclick="deleteTeaching(this)"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+	echo '<td><button class="btn btn-dark" onclick="deleteTeaching('.$teach->teachingID.')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
 	echo '</tr>';
 };
 
@@ -172,7 +172,7 @@ foreach ($teachings as $teach) {
 		</div>
 	</footer>
 	<script>
-		function deleteTeaching(e){
+		function deleteTeaching(teachingID){
 			Swal.fire({
 				title: 'Do you want to delete this teaching?',
 				showDenyButton: true,
@@ -182,7 +182,22 @@ foreach ($teachings as $teach) {
 				}).then((result) => {
 				
 				if (result.isConfirmed) {
-					Swal.fire('Deleted!', '', 'success')
+					$.ajax({
+						url: "../controller/deleteTeaching.php",
+						type: "POST",
+						data: {
+							id: teachingID
+						},
+						// dataType: "html",
+						success: function(data){
+							$('#tableContent').html(data);
+							Swal.fire('Deleted!', '', 'success');
+
+						},
+						error: function(xhr, ajaxOptions, thrownError){
+							Swal.fire('Error deleting!', 'Please try again', 'error');
+						}
+					})
 				} else if (result.isDenied) {
 					Swal.fire('Teaching is not deleted', '', 'info')
 				}
