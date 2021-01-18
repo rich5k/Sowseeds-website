@@ -114,31 +114,31 @@
                
 				<?php
 
-// Instantiate Teaching
-$teaching= new Teaching();
+				// Instantiate Teaching
+				$teaching= new Teaching();
 
-//Get teaching
-$teachings= $teaching->getTeachings();
+				//Get teaching
+				$teachings= $teaching->getTeachings();
 
-$length= count($teachings);
-$counter=0;
-//displays the details of each teaching
-foreach ($teachings as $teach) {
-	$counter++;
+				$length= count($teachings);
+				$counter=0;
+				//displays the details of each teaching
+				foreach ($teachings as $teach) {
+					$counter++;
 
-	echo '<tr>';
-	echo '<th scope="row">'.$counter.'</th>';
-	echo '<input type="hidden" name="teachingId" value="'.$teach->teachingID.'"></input>';
-	echo '<td>'.$teach->title.'</td>';
-	echo '<td>'.$teach->minister.'</td>';
-	echo '<td>'.$teach->teachDate.'</td>';
-	echo '<td>'.$teach->teachDay.'</td>';
-	echo '<td><audio src="../assets/teachingAudios/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
-	echo '<td><button class="btn btn-dark" onclick="deleteTeaching('.$teach->teachingID.')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
-	echo '</tr>';
-};
+					echo '<tr>';
+					echo '<th scope="row">'.$counter.'</th>';
+					echo '<input type="hidden" name="teachingId" value="'.$teach->teachingID.'"></input>';
+					echo '<td>'.$teach->title.'</td>';
+					echo '<td>'.$teach->minister.'</td>';
+					echo '<td>'.$teach->teachDate.'</td>';
+					echo '<td>'.$teach->teachDay.'</td>';
+					echo '<td><audio src="../assets/teachingAudios/'.$teach->audioFile.'" type="audio/mpeg" controls></audio></td>';
+					echo '<td><button class="btn btn-dark" onclick="deleteTeaching('.$teach->teachingID.')"><i class="fa fa-trash" aria-hidden="true"></i></button></td>';
+					echo '</tr>';
+				};
 
-?>
+				?>
                 
             </tbody>
         </table>

@@ -140,6 +140,22 @@
             }
         }
 
+        public function deleteContact($data){
+            //Prepare Query
+            $this->db->query('delete from contacts where contactID= :contactID');
+
+            // Bind Values
+            $this->db->bind(':contactID', $data['contactID']);
+            
+
+            //Execute
+            if($this->db->execute()){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
 
         public function addPreviewTeachings($data){
             //Prepare Query
