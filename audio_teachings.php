@@ -1,7 +1,7 @@
 <?php
-	require_once '../controller/database.php';
-    require_once '../models/Teaching.php';
-    require_once '../models/Database.php';
+	require_once './controller/database.php';
+    require_once './models/Teaching.php';
+    require_once './models/Database.php';
     session_start();
     
     
@@ -87,7 +87,7 @@
 						echo 'A Must Hear Msg. <br>';
 						echo 'Listen, be educated, do the work &  be blessed <br>';
 						echo '</p>';
-						echo '<audio src="./assets/sounds/'.$key->picture.'" type="audio/mpeg" controls></audio';
+						echo '<audio src="./assets/sounds/'.$key->audioFile.'" type="audio/mpeg" controls></audio';
 
 						echo '<br><br>';
 					}
